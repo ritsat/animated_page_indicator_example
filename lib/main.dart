@@ -25,10 +25,10 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  PageController controller =
+  final PageController _controller =
       PageController(viewportFraction: 0.8, keepPage: true);
 
-  List<String> images = [
+  final List<String> _images = [
     "https://images.unsplash.com/photo-1589779677460-a15b5b5790ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
     "https://images.unsplash.com/photo-1520301255226-bf5f144451c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=873&q=80",
     "https://images.unsplash.com/photo-1504472478235-9bc48ba4d60f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80",
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     final pages = List.generate(
-        6,
+        _images.length,
         (index) => Container(
               height: 280,
               clipBehavior: Clip.antiAlias,
@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
               ),
               margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
               child: Image.network(
-                images[index],
+                _images[index],
                 fit: BoxFit.cover,
               ),
             ));
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 240,
           child: PageView.builder(
-            controller: controller,
+            controller: _controller,
             // itemCount: pages.length,
             itemBuilder: (_, index) {
               return pages[index % pages.length];
@@ -74,17 +74,18 @@ class _HomeState extends State<Home> {
           ),
         ),
         SmoothPageIndicator(
-            controller: controller, // PageController
-            count: 6,
-            effect: SwapEffect(
-                spacing: 8.0,
-                radius: 4.0,
-                dotWidth: 24.0,
-                dotHeight: 16.0,
-                paintStyle: PaintingStyle.stroke,
-                strokeWidth: 1.5,
-                dotColor: Colors.grey,
-                activeDotColor: Colors.indigo), // your preferred effect
+            controller: _controller, // PageController
+            count: pages.length,
+            effect: const SwapEffect(
+              spacing: 8.0,
+              radius: 4.0,
+              dotWidth: 24.0,
+              dotHeight: 16.0,
+              paintStyle: PaintingStyle.stroke,
+              strokeWidth: 1.5,
+              dotColor: Colors.grey,
+              activeDotColor: Colors.indigo,
+            ), // your preferred effect
             onDotClicked: (index) {}),
       ]),
     );
