@@ -1,16 +1,10 @@
 # animated_page_indicator_example
 
-A new Flutter project.
+A new Flutter project for animated page indicator example.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project contains an example for animated page indicator in flutter. It covers configuration & customization part. It uses smooth_page_indicator package for smooth & animated page indicator.
 
-A few resources to get you started if this is your first Flutter project:
+Click [here](https://effortlesscodelearning.com/blog/how-to-create-an-animated-page-indicator-in-flutter/) for the detail tutotial on this.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
